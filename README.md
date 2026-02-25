@@ -1,4 +1,4 @@
-# Jeavenchyy Agrotech Website 🌱
+# Jeavenchyy Agrotech Website
 
 Official website for **Jeavenchyy Agrotech**, an agricultural technology
 company focused on smart farming and sustainable agriculture.

@@ -1,9 +1,41 @@
-// Hero title animation
-window.addEventListener("load", () => {
-  const title = document.getElementById("title");
-  title.style.opacity = 0;
-  setTimeout(() => {
-    title.style.transition = "opacity 2s ease";
-    title.style.opacity = 1;
-  }, 500);
+// Mobile Menu
+const toggle = document.getElementById("menu-toggle");
+const nav = document.getElementById("nav-links");
+
+if (toggle) {
+  toggle.addEventListener("click", () => {
+    nav.classList.toggle("active");
+  });
+}
+
+// Scroll Animation
+const faders = document.querySelectorAll(".fade");
+
+window.addEventListener("scroll", () => {
+  faders.forEach((el) => {
+    const position = el.getBoundingClientRect().top;
+    if (position < window.innerHeight - 100) {
+      el.classList.add("show");
+    }
+  });
+});
+
+// Counter Animation
+const counters = document.querySelectorAll(".counter");
+
+counters.forEach((counter) => {
+  const update = () => {
+    const target = +counter.getAttribute("data-target");
+    const count = +counter.innerText;
+
+    const increment = target / 200;
+
+    if (count < target) {
+      counter.innerText = Math.ceil(count + increment);
+      setTimeout(update, 20);
+    } else {
+      counter.innerText = target;
+    }
+  };
+  update();
 });
